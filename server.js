@@ -4,6 +4,7 @@ import cors from 'cors'
 import bodyParser from 'body-parser'
 import fetch from 'node-fetch'
 // import path from 'path'
+import whatsapp from './whatsapp.js'
 
 const app = express()
 dotenv.config()
@@ -18,6 +19,8 @@ const port = process.env.PORT || 5000
 app.get('/', (req, res) => {
     res.send("From backend")
 })
+
+whatsapp()
 
 app.post('/postreq', async (req, res) => {
     let { country, category, page, pageSize } = req.body
